@@ -1,5 +1,6 @@
 package compilador;
 
+import codigo.Intermediario;
 
 public class MainTest {
     public static void main(String[] args) {
@@ -16,7 +17,12 @@ public class MainTest {
 
         var Semantico = new Semantico(listaDeTokens);
         Semantico.analiseSemantica();
-        System.out.println("Analise Semantica concluida");
+        System.out.println("Analise Semantica concluida\n");
+
+        var intermed = new Intermediario(listaDeTokens, Semantico.getDeclarados());
+        var listIntermed = intermed.gerador();
+        System.out.println("\nCodigo intermediario concluido com sucesso\n");
+
     
 
 
