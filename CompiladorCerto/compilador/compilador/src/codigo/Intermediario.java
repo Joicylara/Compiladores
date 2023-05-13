@@ -135,7 +135,7 @@ public class Intermediario {
             }
             //  i++;
         }
-        //  this.codIntermediario.forEach(System.out::print);
+    
         var codFinal = codigoInt.stream()
                 .filter(str -> !str.equals(" "))
                 .filter(str -> !str.equals("\n"))

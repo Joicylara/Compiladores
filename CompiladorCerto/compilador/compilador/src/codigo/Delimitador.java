@@ -13,7 +13,7 @@ public interface Delimitador extends UnaryOperator<List<String>> {
                 .flatMap(Stream::of)
                 .collect(Collectors.toList());
     }
-    //irá encadear os metodos do programa
+   
     default Delimitador andThen(Delimitador other){
         return linha -> {
             List<String> otherResult = other.apply(linha);
