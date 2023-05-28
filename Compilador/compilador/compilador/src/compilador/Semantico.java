@@ -3,7 +3,7 @@ package compilador;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import static compilador.lexicoToken.isId;
+import static compilador.Lexico.isId;
 
 public class Semantico {
 

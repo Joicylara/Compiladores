@@ -1,7 +1,7 @@
-package codigo;
+package compilador.codigo;
 
 import java.util.*;
-import static codigo.Delimitador.splitBy;
+import static compilador.codigo.Delimitador.splitBy;
 
 public class Expressao {
  

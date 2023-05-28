@@ -1,4 +1,4 @@
-package codigo;
+package compilador.codigo;
 
 import compilador.Tokens;
 import compilador.Flag;

@@ -6,7 +6,7 @@ import java.util.Map;
 
 import static java.util.Arrays.asList;
 
-public class utilSintatico {
+public class ListaSintatico {
 
     public static Map<String, Integer> Terminal;
     public static Map<String, Integer> naoTerminal;

@@ -4,7 +4,9 @@ public enum Flag {
 
     TOKENS("-lt", false),
     SINTATICO("-ls", false),
-    SEMANTICO("-lse", false);
+    SEMANTICO("-lse", false),
+    CODIGO_INTER("-li", false);
+    
 
 
     //private String value;

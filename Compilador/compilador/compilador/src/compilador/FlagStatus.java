@@ -14,6 +14,8 @@ public class FlagStatus {
                 SINTATICO.setStatus(true);
             }else  if (s.equals("-lse")) {
                 SEMANTICO.setStatus(true);
+            }else  if (s.equals("-li")) {
+                CODIGO_INTER.setStatus(true);
             }
         }
     }

@@ -24,5 +24,17 @@ public class arquivo {
         return codigo;
     }
 
+    public void criarArquivo(String codigo) throws IOException {
+
+        File file = new File("C:\\Users\\JOICE\\OneDrive\\Compiladores\\Gramatica.TesteTriangulo.txt");
+        file.createNewFile();
+
+        FileWriter fw = new FileWriter(file.getAbsolutePath());
+        var bw = new BufferedWriter(fw);
+
+        bw.write(codigo);
+        bw.close();
+    }
+
 
 }

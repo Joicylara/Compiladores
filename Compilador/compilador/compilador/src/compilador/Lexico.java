@@ -3,14 +3,14 @@ package compilador;
 
 import java.util.*;
 
-public class lexicoToken {
+public class Lexico {
     //declação de metodo de atribuição dos tokens
     //map tipo estatico para armazenar os tokens
     public final static Map<String, String> palavraChave;
 
     static {
         palavraChave = new HashMap<>();
-        palavraChave.put("star", "inicio");
+        palavraChave.put("start", "inicio");
         palavraChave.put("finish", "fim");
         palavraChave.put("read", "read");
         palavraChave.put("write", "write");
@@ -30,7 +30,7 @@ public class lexicoToken {
     public static boolean isKeyword(String s) {
         switch (s) {
        
-            case "star":
+            case "start":
             case "finish":
             case "if":
             case "else":

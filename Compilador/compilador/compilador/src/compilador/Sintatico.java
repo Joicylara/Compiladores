@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
-import static compilador.utilSintatico.*;
+import static compilador.ListaSintatico.*;
 
 public class Sintatico {
 
