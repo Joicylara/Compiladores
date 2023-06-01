@@ -1,0 +1,45 @@
+start
+int a;
+int b;
+int c;
+int d:3;
+write ("digite um numero");
+read (a);
+write ("digite um numero");
+read (b);
+write ("digite um numero");
+read (c);
+if(a<c+b){
+d : d-1;
+};
+if(c<a+b){
+d : d-1;
+};
+if(b<c+a){
+d : d-1;
+};
+if(0 < d){
+ write (" nao e triangulo");
+else
+ write("e triangulo");
+ if(b=c){
+  d:d+ 1;
+ };
+ if(a=c){
+  d:d+1;
+ };
+ if(b=a){
+  d:d+1;
+ };
+ if(d<1){
+  write ("escaleno");
+ };
+ if(d=1){
+  write ("isoceles");
+ };
+ if(1<d){
+  write ("equilatero");
+ };
+};
+
+finish
