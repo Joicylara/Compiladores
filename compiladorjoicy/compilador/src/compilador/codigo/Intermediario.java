@@ -115,7 +115,7 @@ public class Intermediario {
             } else if (listaTokens.get(i).getToken().equals("var")) {
                 String comando = listaTokens.get(i++).getLexeme();
                 if (listaTokens.get(i).getLexeme().equals(":")) {
-                    comando += " : ";
+                    comando += " = ";
                     StringBuilder exp = new StringBuilder();
                     while (!(listaTokens.get(++i).getLexeme().equals(";"))) {
                         exp.append(listaTokens.get(i).getLexeme());
@@ -152,6 +152,7 @@ public class Intermediario {
                 case ">" -> "<=";
                 case "<" -> ">=";
                 case "=" -> "==";
+                case "!" -> "!=";
                 default -> temp;
             });
         }

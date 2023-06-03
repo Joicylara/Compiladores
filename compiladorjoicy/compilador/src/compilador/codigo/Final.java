@@ -99,10 +99,15 @@ public class Final {
                     var label = intermediario.get(i);
                     var jmp = "";
                     if (exp[1].equals(">=")) {
-                        jmp = "\tjae " + label + "\n";
-                    } else if(exp[1].equals("==")){
-                        jmp = "\tjne " + label + "\n";
+                        jmp = "\tjge " + label + "; maior ou igual"+ "\n";
+                    } else if (exp[1].equals("<=")){
+                        jmp = "\tjle " + label + "; menor ou igual"+ "\n";
+                    }else if(exp[1].equals("==")){
+                        jmp = "\tjne " + label + "; salta se nao igual"+ "\n";
+                    }else{
+                        jmp = "\tje " + label + "; salta se igual"+ "\n";
                     }
+
                     textSection.append("\n\tmov eax, " + exp[0] + "\n");
                     textSection.append("\tmov ebx, " + exp[2] + "\n");
                     textSection.append("\tcmp eax, ebx"+ "\n");
@@ -137,8 +142,14 @@ public class Final {
                         textSection.append("\tmov ebx, " + third + "\n");
     
                         switch (opr) {
+                            case "add":
+                                textSection.append("\t" + opr + " eax, ebx\n");
+                                break;
+                            case "sub":
+                                textSection.append("\t" + opr + "ebx, ecx\n");  
+                                break;  
                             case "mul":
-                                textSection.append("\t" + opr + " ebx\n");
+                                textSection.append("\t" + opr + " bx\n");
                                 break;
                             case "div":
                                 textSection.append("\txor edx, edx\n");
