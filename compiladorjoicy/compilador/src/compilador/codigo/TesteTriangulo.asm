@@ -219,16 +219,19 @@ _L18:
 _L17:
 _L16:
 _L4:
-
-	jmp _L19
 _L1:
+
+	mov eax, [d]
+	mov ebx, 0
+	cmp eax, ebx
+	jne _L19; salta se nao igual
 
 ; Escrever a string na saída
 	push dword str_10
 	call printf
 	add esp, 4
 _L19:
-
+;final do programa
 	mov esp,ebp
  	pop ebp
  	ret

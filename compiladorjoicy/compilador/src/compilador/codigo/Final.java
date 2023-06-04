@@ -117,6 +117,7 @@ public class Final {
                     textSection.append(intermediario.get(i) + "\n");
     
                 } else if (intermediario.get(i).contains("GOTO")) {
+                    textSection.append("\n\t;Salta para a instrução do rótulo passado" + "\n");
                     textSection.append("\n\tjmp " + intermediario.get(++i) + "\n");
     
                 } else {
@@ -136,7 +137,7 @@ public class Final {
                             case "-" -> "sub";
                             case "*" -> "mul";
                             case "/" -> "div";
-                            default -> " ";
+                            default -> null;
                         };
                         textSection.append("\n\tmov eax, " + second + "\n");
                         textSection.append("\tmov ebx, " + third + "\n");
@@ -146,10 +147,10 @@ public class Final {
                                 textSection.append("\t" + opr + " eax, ebx\n");
                                 break;
                             case "sub":
-                                textSection.append("\t" + opr + "ebx, ecx\n");  
+                                textSection.append("\t" + opr + " ebx, ecx\n");  
                                 break;  
                             case "mul":
-                                textSection.append("\t" + opr + " bx\n");
+                                textSection.append("\t" + opr + " ebx\n");
                                 break;
                             case "div":
                                 textSection.append("\txor edx, edx\n");
@@ -167,6 +168,7 @@ public class Final {
             codigo.append(dataSection);
             codigo.append(bssSection);
             codigo.append(textSection);
+            codigo.append(";final do programa");
             codigo.append("\n\tmov esp,ebp\n \tpop ebp\n \tret");
             return codigo.toString();
         }

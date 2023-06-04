@@ -60,8 +60,8 @@ s3:b+c;
 		};
 		};
 		
-
-            else
+ };
+   if(d=0){
 		write("Nao eh um Triangulo");
-        };
+   };
 finish
