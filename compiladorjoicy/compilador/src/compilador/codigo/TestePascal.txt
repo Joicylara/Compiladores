@@ -9,15 +9,16 @@ int g;
 int h;
 int m;
 int r;
+int s;
 c:0;
 write("base do triagulo");
 read (b);
 
 while(c<b){
    a:0;
-   c1:c+1;
-   while(a<c1){
-      
+   s:c+1;
+   while(a<s){
+      s:c+1;
       d:1;
       e:c+1;
       f:1;
@@ -35,19 +36,24 @@ while(c<b){
       };
 
       h:1;
-      e:c-a+1;
+      e:c-a;
+      e:e+1;
       f:1;
       while (f<e) {
-         g:g*f;
-         f:f+1;
+       	g:g*f;
+        f:f+1;
       };
-      m:g*h
+
+      m:g*h;
       r:d/m;
-      write("resultado");
-      write ("r");
+      write(r);
+      write (" ");
       a:a+1;
-   };
+
+  };
+ 
    write (" ");
    c:c+1;
+    
 };
 finish
