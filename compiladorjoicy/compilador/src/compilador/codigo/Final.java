@@ -122,7 +122,7 @@ public class Final {
     
                 } else {
                     var expr = intermediario.get(i).split(" ");
-                    //System.out.println(Arrays.toString(expr));
+                   
                     var first = toRegister(expr[0]);
                     var second = toRegister(expr[2]);
     
@@ -137,18 +137,18 @@ public class Final {
                             case "-" -> "sub";
                             case "*" -> "mul";
                             case "/" -> "div";
-                            default -> null;
+                            default -> " ";
                         };
                         textSection.append("\n\tmov eax, " + second + "\n");
                         textSection.append("\tmov ebx, " + third + "\n");
     
                         switch (opr) {
-                            case "add":
+                            /*case "add":
                                 textSection.append("\t" + opr + " eax, ebx\n");
                                 break;
                             case "sub":
                                 textSection.append("\t" + opr + " ebx, ecx\n");  
-                                break;  
+                                break; */ 
                             case "mul":
                                 textSection.append("\t" + opr + " ebx\n");
                                 break;
