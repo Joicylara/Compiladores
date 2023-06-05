@@ -1,59 +1,43 @@
 start
-int a;
-int b;
-int c;
-int d;
-int e;
-int f;
-int g;
-int h;
-int m;
-int r;
-int s;
-c:0;
-write("base do triagulo");
-read (b);
+  int numero;
+  write("Numero de linhas: ");
+  read(numero);
+  
+  int linha;
 
-while(c<b){
-   a:0;
-   s:c+1;
-   while(a<s){
-      s:c+1;
-      d:1;
-      e:c+1;
-      f:1;
-      while(f<e) {
-         d:d*f;
-         f:f+1;
+   linha: 1;
+   int cont1;
+   cont1:numero+1;
+   int cont2;
+   cont2:linha+1;
+   while (linha < cont1) {
+      int valor;
+      valor: 1;
+      write("Valor: ");
+      write(valor);
+      
+      if (numero ! 1) {
+         while(linha < numero) {
+            valor: 1;
+            write("Valor: ");
+            write(valor);
+
+            int coluna;
+            coluna: 1;
+           
+            while(coluna < cont2) {
+               valor: (valor * (linha - coluna + 1) ) / coluna;
+               write("Valor: ");
+               write(valor);
+               coluna: coluna + 1;
+            }; 
+   
+            linha: linha + 1;
+            cont2:linha+1;
+         };
       };
+      linha: linha + 1;
+      cont2:linha+1;
+   };
 
-      g:1;
-      e:a+1;
-      f:1;
-      while (f<e) {
-         g:g*f;
-         f:f+1;
-      };
-
-      h:1;
-      e:c-a;
-      e:e+1;
-      f:1;
-      while (f<e) {
-       	g:g*f;
-        f:f+1;
-      };
-
-      m:g*h;
-      r:d/m;
-      write(r);
-      write (" ");
-      a:a+1;
-
-  };
- 
-   write (" ");
-   c:c+1;
-    
-};
 finish
