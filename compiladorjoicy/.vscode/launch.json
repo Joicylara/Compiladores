@@ -6,10 +6,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "MainTest",
+            "name": "Abacate",
             "request": "launch",
             "mainClass": "compilador.MainTest",
-            "projectName": "compiladorjoicy_eb1128f1"
+            "projectName": "compiladorjoicy_eb1128f1",
+            "args": "C:\\Users\\JOICE\\OneDrive\\Compiladores\\Compilador\\compiladorjoicy\\compilador\\src\\compilador\\codigo\\TestePascal.txt"
         },
         {
             "type": "java",

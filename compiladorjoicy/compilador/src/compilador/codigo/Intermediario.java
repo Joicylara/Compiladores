@@ -32,7 +32,8 @@ public class Intermediario {
 
     public List<String> gerador() {
         int i = 0;
-
+        Stack<Boolean> whileFlag = new Stack<>();
+    
         for (var var : variaveis) {
             
             codIntermediario.addLast("INT");
@@ -75,17 +76,27 @@ public class Intermediario {
 
                 pilhaLabel.push("_L" + (contadorLabel + 1) + ":");
                 pilhaLabel.push("_L" + (contadorLabel++));
-                pilhaLabel.push("GOTO");
-              } else if (listaTokens.get(i).getLexeme().equals("}")) {
-                codIntermediario.addLast(pilhaLabel.peek());
-                pilhaLabel.pop();
-                /*codIntermediario.addLast(pilhaLabel.peek());
-                pilhaLabel.pop();
-
-                codIntermediario.addLast(pilhaLabel.peek());
-                pilhaLabel.pop();*/
-                codIntermediario.addLast("\n");
+                pilhaLabel.push("GOTO ");
                 
+                whileFlag.add(true);
+              } else if (listaTokens.get(i).getLexeme().equals("}")) {
+                if(whileFlag.peek()){
+                    codIntermediario.addLast(pilhaLabel.peek());
+                    pilhaLabel.pop();
+
+                    codIntermediario.addLast(pilhaLabel.peek());
+                    pilhaLabel.pop();
+                    codIntermediario.addLast("\n");
+                    codIntermediario.addLast(pilhaLabel.peek());
+                    pilhaLabel.pop();
+                    codIntermediario.addLast("\n");
+                }else{
+                    codIntermediario.addLast(pilhaLabel.peek());
+                    pilhaLabel.pop();
+                    codIntermediario.addLast("\n");
+                }
+                whileFlag.pop();
+
             } else if (listaTokens.get(i).getLexeme().equals("int")) {
                 while (!listaTokens.get(++i).getLexeme().equals(";")) ;
             } else if (listaTokens.get(i).getLexeme().equals("if")) {
@@ -104,7 +115,7 @@ public class Intermediario {
                 codIntermediario.addLast(" ");
                 codIntermediario.addLast("_L" + contadorLabel);
                 codIntermediario.addLast("\n");
-
+                whileFlag.add(false);
             } else if (listaTokens.get(i).getLexeme().equals("else")) {
                 codIntermediario.addLast("GOTO");
                 codIntermediario.addLast(" ");
@@ -115,10 +126,6 @@ public class Intermediario {
                 codIntermediario.addLast("\n");
                 pilhaLabel.pop();
                 pilhaLabel.push("_L" + contadorLabel + ":");
-            } else if (listaTokens.get(i).getLexeme().equals("}")) {
-                codIntermediario.addLast(pilhaLabel.peek());
-                pilhaLabel.pop();
-                codIntermediario.addLast("\n");
             } else if (listaTokens.get(i).getToken().equals("var")) {
                 String comando = listaTokens.get(i++).getLexeme();
                 if (listaTokens.get(i).getLexeme().equals(":")) {
@@ -131,7 +138,7 @@ public class Intermediario {
                     var arr = codTresEnds(posfixo);
 
                     for (int j = 0; j < (arr.size() - 1); j++) {
-                        codIntermediario.addLast("_V" + ((countVar++) % 2) + " = " + arr.get(j));
+                        codIntermediario.addLast("_t" + ((countVar++) % 2) + " = " + arr.get(j));
                     }
                     codIntermediario.addLast(comando + arr.get(arr.size() - 1));
                 }
@@ -181,7 +188,7 @@ public class Intermediario {
                 var a = stack.peek();
                 stack.pop();
                 result.addLast(a + " " + b + " " + token);
-                stack.push("_V" + (countVar++) % 2);
+                stack.push("_t" + (countVar++) % 2);
             } else {
                 stack.push(token);
             }
