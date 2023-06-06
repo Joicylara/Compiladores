@@ -22,11 +22,11 @@
 	s2: resd 1
 
  section .text
-	global main
-	extern printf
-	extern scanf
+	global _main
+	extern _printf
+	extern _scanf
 
-main:
+_main:
  
   ; Preparação da pilha 
 	push ebp
@@ -34,35 +34,35 @@ main:
 
 ; Escrever a string na saída
 	push dword str_1
-	call printf
+	call _printf
 	add esp, 4
 
  ; Ler a entrada do usuário para a variável
 	push a
 	push dword fmtin
-	call scanf
+	call _scanf
 	add esp, 8
 
 ; Escrever a string na saída
 	push dword str_2
-	call printf
+	call _printf
 	add esp, 4
 
  ; Ler a entrada do usuário para a variável
 	push b
 	push dword fmtin
-	call scanf
+	call _scanf
 	add esp, 8
 
 ; Escrever a string na saída
 	push dword str_3
-	call printf
+	call _printf
 	add esp, 4
 
  ; Ler a entrada do usuário para a variável
 	push c
 	push dword fmtin
-	call scanf
+	call _scanf
 	add esp, 8
 
 	mov eax, [a]
@@ -100,7 +100,7 @@ main:
 
 ; Escrever a string na saída
 	push dword str_4
-	call printf
+	call _printf
 	add esp, 4
 _L3:
 _L2:
@@ -122,7 +122,7 @@ _L2:
 
 ; Escrever a string na saída
 	push dword str_5
-	call printf
+	call _printf
 	add esp, 4
 _L6:
 _L5:
@@ -144,7 +144,7 @@ _L5:
 
 ; Escrever a string na saída
 	push dword str_6
-	call printf
+	call _printf
 	add esp, 4
 _L9:
 _L8:
@@ -167,7 +167,7 @@ _L7:
 
 ; Escrever a string na saída
 	push dword str_7
-	call printf
+	call _printf
 	add esp, 4
 _L12:
 _L11:
@@ -190,7 +190,7 @@ _L10:
 
 ; Escrever a string na saída
 	push dword str_8
-	call printf
+	call _printf
 	add esp, 4
 _L15:
 _L14:
@@ -213,7 +213,7 @@ _L13:
 
 ; Escrever a string na saída
 	push dword str_9
-	call printf
+	call _printf
 	add esp, 4
 _L18:
 _L17:
@@ -228,7 +228,7 @@ _L1:
 
 ; Escrever a string na saída
 	push dword str_10
-	call printf
+	call _printf
 	add esp, 4
 _L19:
 ;final do programa

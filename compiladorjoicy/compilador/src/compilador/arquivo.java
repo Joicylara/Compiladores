@@ -25,6 +25,7 @@ public class arquivo {
     }
 
     public void criarArquivo(String codigo) throws IOException {
+        // caminho para gerar o código asm
 
         File file = new File("C:\\Users\\JOICE\\OneDrive\\Compiladores\\Compilador\\compiladorjoicy\\compilador\\src\\compilador\\codigo\\TesteTriangulo.asm");
         //File file = new File("C:\\Users\\JOICE\\OneDrive\\Compiladores\\Compilador\\compiladorjoicy\\compilador\\src\\compilador\\codigo\\TestePascal.asm");

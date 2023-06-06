@@ -39,8 +39,8 @@ public class Final {
             this.dataSection.append("\tfmtout:\tdb \"%d\", 0xA, 0x0\n");
     
             this.textSection.append("\n section .text\n");
-            this.textSection.append("\tglobal main\n\textern printf\n\textern scanf\n");
-            this.textSection.append("\nmain:\n ");
+            this.textSection.append("\tglobal _main\n\textern _printf\n\textern _scanf\n");
+            this.textSection.append("\n_main:\n ");
     
         }
     
@@ -60,13 +60,13 @@ public class Final {
                         write += "\n; Escrever a variável na saída\n"+
                                 "\tpush dword [" + str + "]\n" +
                                 "\tpush dword fmtout\n" +
-                                "\tcall printf\n" +
+                                "\tcall _printf\n" +
                                 "\tadd esp, 8\n";
                     } else {
                         var constStr = "str_" + (strCount++);
                         write +="\n; Escrever a string na saída\n"+ 
                                 "\tpush dword " + constStr + "\n" +
-                                "\tcall printf\n" +
+                                "\tcall _printf\n" +
                                 "\tadd esp, 4\n";
                         var declaracao = "\t" + constStr + ": db " + str + ", 10,0\n";
                         dataSection.append(declaracao);
@@ -81,7 +81,7 @@ public class Final {
                     textSection.append("\n ; Ler a entrada do usuário para a variável\n");
                     textSection.append("\tpush ").append(intermediario.get(++i));
                     textSection.append("\n\tpush dword fmtin\n");
-                    textSection.append("\tcall scanf\n");
+                    textSection.append("\tcall _scanf\n");
                     textSection.append("\tadd esp, 8\n");
     
                 } else if (intermediario.get(i).equals("IF")) {

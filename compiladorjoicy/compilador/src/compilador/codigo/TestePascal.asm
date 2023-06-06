@@ -15,11 +15,11 @@
 	linha: resd 1
 
  section .text
-	global main
-	extern printf
-	extern scanf
+	global _main
+	extern _printf
+	extern _scanf
 
-main:
+_main:
  
   ; Preparação da pilha 
 	push ebp
@@ -27,13 +27,13 @@ main:
 
 ; Escrever a string na saída
 	push dword str_1
-	call printf
+	call _printf
 	add esp, 4
 
  ; Ler a entrada do usuário para a variável
 	push numero
 	push dword fmtin
-	call scanf
+	call _scanf
 	add esp, 8
 
 	mov eax,1
@@ -60,13 +60,13 @@ _L1:
 
 ; Escrever a string na saída
 	push dword str_2
-	call printf
+	call _printf
 	add esp, 4
 
 ; Escrever a variável na saída
 	push dword [valor]
 	push dword fmtout
-	call printf
+	call _printf
 	add esp, 8
 
 	mov eax, [numero]
@@ -85,13 +85,13 @@ _L4:
 
 ; Escrever a string na saída
 	push dword str_3
-	call printf
+	call _printf
 	add esp, 4
 
 ; Escrever a variável na saída
 	push dword [valor]
 	push dword fmtout
-	call printf
+	call _printf
 	add esp, 8
 
 	mov eax,1
@@ -126,13 +126,13 @@ _L6:
 
 ; Escrever a string na saída
 	push dword str_4
-	call printf
+	call _printf
 	add esp, 4
 
 ; Escrever a variável na saída
 	push dword [valor]
 	push dword fmtout
-	call printf
+	call _printf
 	add esp, 8
 
 	mov eax, [coluna]
