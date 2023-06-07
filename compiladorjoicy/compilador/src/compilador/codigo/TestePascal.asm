@@ -2,9 +2,8 @@
 	fmtin:	db "%d",  0x0
  	fmtout:	db "%d", 0xA, 0x0
 	str_1: db "Numero de linhas: ", 10,0
-	str_2: db "Valor: ", 10,0
-	str_3: db "Valor: ", 10,0
-	str_4: db "Valor: ", 10,0
+	str_2: db " ", 10,0
+	str_3: db " ", 10,0
 
  section .bss
  	numero: resd 1
@@ -83,11 +82,6 @@ _L4:
 	mov eax,1
 	mov [valor], eax
 
-; Escrever a string na saída
-	push dword str_3
-	call _printf
-	add esp, 4
-
 ; Escrever a variável na saída
 	push dword [valor]
 	push dword fmtout
@@ -124,11 +118,6 @@ _L6:
 	div ebx
 	mov [valor], eax
 
-; Escrever a string na saída
-	push dword str_4
-	call _printf
-	add esp, 4
-
 ; Escrever a variável na saída
 	push dword [valor]
 	push dword fmtout
@@ -160,6 +149,11 @@ _L7:
 	jmp _L4
 _L5:
 _L3:
+
+; Escrever a string na saída
+	push dword str_3
+	call _printf
+	add esp, 4
 
 	mov eax, [linha]
 	mov ebx, 1

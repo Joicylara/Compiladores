@@ -1,26 +1,14 @@
 package compilador.codigo;
 
 
-//import java.util.Arrays;
 import java.util.List;
 
 import compilador.Lexico;
-//import compilador.SintaticException;
-//import compilador.Tokens;
 
-//import org.javatuples.Triplet;
-
-/*import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
-import java.util.function.BiFunction;
-import java.util.function.UnaryOperator;*/
-
+// conversão do intermediário p/ NASM 
 public class Final {
 
+        //concatenação
         public StringBuffer codigo;
         public StringBuffer textSection;
         public StringBuffer dataSection;
@@ -32,13 +20,13 @@ public class Final {
             this.textSection = new StringBuffer();
             this.bssSection = new StringBuffer();
     
-            this.bssSection.append("\n section .bss\n ");
+            this.bssSection.append("\n section .bss\n ");   //seção de variaveis
     
-            this.dataSection.append(" section .data\n");
+            this.dataSection.append(" section .data\n");    //seção de constantes
             this.dataSection.append("\tfmtin:\tdb \"%d\",  0x0\n ");
             this.dataSection.append("\tfmtout:\tdb \"%d\", 0xA, 0x0\n");
     
-            this.textSection.append("\n section .text\n");
+            this.textSection.append("\n section .text\n");  //escopos iniciais
             this.textSection.append("\tglobal _main\n\textern _printf\n\textern _scanf\n");
             this.textSection.append("\n_main:\n ");
     
@@ -143,12 +131,6 @@ public class Final {
                         textSection.append("\tmov ebx, " + third + "\n");
     
                         switch (opr) {
-                            /*case "add":
-                                textSection.append("\t" + opr + " eax, ebx\n");
-                                break;
-                            case "sub":
-                                textSection.append("\t" + opr + " ebx, ecx\n");  
-                                break; */ 
                             case "mul":
                                 textSection.append("\t" + opr + " ebx\n");
                                 break;

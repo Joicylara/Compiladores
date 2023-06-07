@@ -6,14 +6,12 @@ public enum Flag {
     SINTATICO("-ls", false),
     SEMANTICO("-lse", false),
     CODIGO_INTER("-li", false);
+ 
     
-
-
-    //private String value;
     private Boolean status;
 
     Flag(String value, boolean status) {
-       // this.value = value;
+       
         this.status = status;
     }
 

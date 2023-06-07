@@ -20,10 +20,10 @@ public class Semantico {
     public void analiseSemantica() {
 
         int i = 0; // contador
-        //enqunto for menor que o numero de tokens existente na tokenInfo
+        //enquanto for menor que o numero de tokens 
         while (i < tokens.size()) {
             var Tok = tokens.get(i);
-            //verifica se é um inteiro se reconhecer que foram declarados com "var"
+            //verifica se é um inteiro se reconhecer que foram declarados 
             if (Tok.getToken().equals("tipo")) {
                 var tokProximo = tokens.get(i + 1); // vai passando variavel por variavel
                 if (declarados.containsKey(tokProximo.getLexeme())) {
@@ -50,9 +50,9 @@ public class Semantico {
                 }
 
                 var buffer = new StringBuilder();
-                if (tokens.get(++i).getToken().equals(":")) {
+                if (tokens.get(++i).getToken().equals(":")) {   //atribuição da variavel
                     i++;
-                    while (!tokens.get(i).getToken().equals(";")) {
+                    while (!tokens.get(i).getToken().equals(";")) { // enquanto não chegar ao final da atribuição da variavel, ele continua fazendo a analise
                         String valor = tokens.get(i).getLexeme();
                         if (isId(valor)) {
                             if (!declarados.containsKey(Tok.getLexeme())) {
@@ -62,7 +62,7 @@ public class Semantico {
                             if (declarados.get(valor)) {
                                 buffer.append(valor);
                             } else {
-                                buffer.append("0");
+                                buffer.append("0"); //verificação por zero
                             }
                         } else {
                             buffer.append(valor);
@@ -80,7 +80,6 @@ public class Semantico {
                 }
             } else if (Tok.getToken().equals("read")) {
                 var tokProximo = tokens.get(i + 2);
-                // log("entrou no read " + tokProximo);
                 declarados.put(tokProximo.getLexeme(), true);
             }
             i++;
@@ -89,7 +88,7 @@ public class Semantico {
 
 
     private void log(String msg) {
-        if (Flag.SEMANTICO.getStatus()) {
+        if (Flag.SEMANTICO.getStatus()) {   //flag para printar
             System.out.println(msg);
         }
     }

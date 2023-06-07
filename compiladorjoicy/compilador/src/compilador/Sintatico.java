@@ -15,7 +15,7 @@ public class Sintatico {
         this.filaToken = new LinkedList<>(listofTokens);// aqui ele iniciará a fila
         this.pilha = new Stack<>();// inicia a pilha
 
-        //CASO ESTEJA CERTO ELE EMITE O $
+        //add $ para mostrar que a analise foi realizada com sucesso
         pilha.push("$");
         pilha.push("PROGRAM");
     }
@@ -80,7 +80,7 @@ public class Sintatico {
     }
 
     private void log(String msg) {
-        if (Flag.SINTATICO.getStatus()) {
+        if (Flag.SINTATICO.getStatus()) {   //flag para printar
             System.out.println(msg);
         }
     }

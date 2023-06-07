@@ -12,6 +12,7 @@ public class ListaSintatico {
     public static Map<String, Integer> naoTerminal;
     public static Map<String, String> palavraChave;
 
+    //terminal do gals
     static {
         Terminal = new HashMap<>(); // horizontal
         Terminal.put("$", 0);
@@ -44,6 +45,7 @@ public class ListaSintatico {
         Terminal.put("}", 27);
         Terminal.put("{", 28);
 
+        //nao terminal
         naoTerminal = new HashMap<>(); // vertical
         naoTerminal.put("PROGRAM", 0);
         naoTerminal.put("CODIGO", 1);
@@ -84,6 +86,7 @@ public class ListaSintatico {
         return naoTerminal;
     }
 
+    //produção gerada pelo HTML do gals
     public static List<List<String>> getRegrasProducao() {
         return asList(
 
@@ -231,6 +234,7 @@ public class ListaSintatico {
          );
     }
 
+    //tabela referente a produção dos terminais e os não terminais
     public static List<List<Integer>> getTabelaSintatica() {
 
         return asList(

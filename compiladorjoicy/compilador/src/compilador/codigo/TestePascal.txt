@@ -13,13 +13,14 @@ start
    while (linha < cont1) {
       int valor;
       valor: 1;
-      write("Valor: ");
+
+      write(" ");
       write(valor);
       
       if (numero ! 1) {
          while(linha < numero) {
             valor: 1;
-            write("Valor: ");
+           
             write(valor);
 
             int coluna;
@@ -27,7 +28,7 @@ start
            
             while(coluna < cont2) {
                valor: (valor * (linha - coluna + 1) ) / coluna;
-               write("Valor: ");
+              
                write(valor);
                coluna: coluna + 1;
             }; 

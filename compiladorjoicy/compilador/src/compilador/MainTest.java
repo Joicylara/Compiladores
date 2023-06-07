@@ -17,10 +17,10 @@ public class MainTest {
         var listaDeTokens = new Lexico().splitTk(new arquivo().lerAquivo(path));
         System.out.println("Analise Léxica Concluida\n");
 
-        new Sintatico(listaDeTokens).AnalisadorSintatico();
+        new Sintatico(listaDeTokens).AnalisadorSintatico(); //lista de tokens para ser analisada no método AnalisadorSintatico
         System.out.println("Analise Sintática Concluida\n");
 
-        var Semantico = new Semantico(listaDeTokens);
+        var Semantico = new Semantico(listaDeTokens);   //lista para ser analisada
         Semantico.analiseSemantica();
         System.out.println("Analise Semantica concluida\n");
 

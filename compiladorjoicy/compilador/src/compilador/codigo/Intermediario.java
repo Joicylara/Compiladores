@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import static java.util.Arrays.asList;
 
+//Gerado facilitar a tradução para a linguagem de baixo nível
 public class Intermediario {
 
     public List<Tokens> listaTokens;
@@ -34,6 +35,7 @@ public class Intermediario {
         int i = 0;
         Stack<Boolean> whileFlag = new Stack<>();
     
+        //pegar as variaveis
         for (var var : variaveis) {
             
             codIntermediario.addLast("INT");
@@ -42,6 +44,7 @@ public class Intermediario {
             codIntermediario.addLast("\n");
         }
 
+        //verificação na lista de tokens
         for (i = 0; i < listaTokens.size(); i++) {
 
             if (listaTokens.get(i).getLexeme().equals("read")) {
@@ -76,7 +79,7 @@ public class Intermediario {
 
                 pilhaLabel.push("_L" + (contadorLabel + 1) + ":");
                 pilhaLabel.push("_L" + (contadorLabel++));
-                pilhaLabel.push("GOTO ");
+                pilhaLabel.push("GOTO ");  
                 
                 whileFlag.add(true);
               } else if (listaTokens.get(i).getLexeme().equals("}")) {
@@ -159,6 +162,7 @@ public class Intermediario {
         return (finalCode);
     }
 
+    // converte condição para sair do método
     private void convertCond(List<String> cond) {
         for (int i = 0; i < cond.size(); i++) {
             var temp = cond.get(i);
@@ -171,9 +175,9 @@ public class Intermediario {
             });
         }
     }
-
+    
+    //transformação da infixa para posfixa
     private List<String> codTresEnds(List<String> posfixo) {
-        // System.out.println(posfixo.toString());
         LinkedList<String> result = new LinkedList<>();
         Stack<String> stack = new Stack<>();
 

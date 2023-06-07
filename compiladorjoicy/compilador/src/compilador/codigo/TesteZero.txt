@@ -1,0 +1,20 @@
+start
+
+int a;
+int b;
+int c;
+int d;
+
+write("digite um numero: ");
+read(a);
+
+write("digite um numero: ");
+read(b);
+
+write("digite um numero: ");
+read(c);
+
+if(a>b){
+    d: c/0;
+};
+finish

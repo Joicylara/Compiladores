@@ -22,6 +22,7 @@ public class Lexico {
       
     }
 
+    //Verifica linha por linha da linguagem, pois foi feito por expressões regulares
     int lineCounter = 1;
     int columnCounter = 1;
     List<String> line = new ArrayList<>();
@@ -74,7 +75,7 @@ public class Lexico {
 
     // o booleano que verifica o caractere a ser recebido será identificado como letra ou numero
     public static boolean isId(String s) {
-        if (!Character.isLetter(s.charAt(0))) {
+        if (!Character.isLetter(s.charAt(0))) { //verifica se o primeiro digito não é uma letra
             return false;
         }
         return s.chars().allMatch(Character::isLetterOrDigit);
@@ -91,6 +92,7 @@ public class Lexico {
 
         String regex = "((?<=" + splitter + ")|"  /*lookahead*/ + "(?=" + splitter + "))"; /*lookbehind*/
 
+       
         for (String s : codigo) {
 
             if (s.isEmpty()) { // tratamento para linha vazia
@@ -116,7 +118,7 @@ public class Lexico {
                 } else if (isId(lexeme)) { // add caso for um id
                     listOfTokens.add(new Tokens("var", lexeme, lineCounter, columnCounter));
                     columnCounter += lexeme.length();
-                } else if (isNumber(lexeme)) { // add caso for um numeral
+                } else if (isNumber(lexeme)) { // add caso for um numero
                     listOfTokens.add(new Tokens("num", lexeme, lineCounter, columnCounter));
                     columnCounter += lexeme.length();
                 } else if (lexeme.equals("\"")) { // add strings
@@ -143,11 +145,11 @@ public class Lexico {
                     System.exit(-1);
                 }
             }
-            lineCounter++;
-            columnCounter = 1;
+            lineCounter++;  //encremento na linha
+            columnCounter = 1;  //seta a coluna
         }
         listOfTokens.add(new Tokens("$", "$", lineCounter, columnCounter));
-        if (Flag.TOKENS.getStatus()) {
+        if (Flag.TOKENS.getStatus()) {  //flag para listar a lista de tokens
             for (Tokens listOfToken : listOfTokens) { //printa a lista de tokens
                 System.out.println(listOfToken.toString());
             }
